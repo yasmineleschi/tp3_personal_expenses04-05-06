@@ -10,6 +10,7 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return transaction.isEmpty
         ? LayoutBuilder(builder: (ctx, constraints) {
       return Column(
@@ -51,5 +52,6 @@ class TransactionList extends StatelessWidget {
             itemCount: transaction.length,
           ) */
     ;
+
   }
 }

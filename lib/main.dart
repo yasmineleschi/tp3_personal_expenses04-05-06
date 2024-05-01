@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:intl/date_symbol_data_local.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/date_symbol_data_local.dart'; // Importer le package pour l'initialisation de la localisation de la date
 import 'package:tp3/model/Transaction.dart';
 import 'package:tp3/widgets/Chart.dart';
 import 'package:tp3/widgets/NewTransaction.dart';
 import 'package:tp3/widgets/TransactionList.dart';
 
 void main() {
-
+  // Appel de initializeDateFormatting avec la locale 'fr_FR' pour le français par exemple
   initializeDateFormatting('fr_FR', null);
 
   runApp(const MyApp());

@@ -1,5 +1,9 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 
 class NewTransaction extends StatefulWidget {
   final Function newTransactionHandler;
@@ -42,18 +46,22 @@ class _NewTransactionState extends State<NewTransaction> {
   }
 
   void _submitData() {
+
     if (_amountController.text.isEmpty || _selectedDate == null) {
       return;
     }
 
+
     final enteredTitle = _titleController.text;
     final enteredAmount = double.parse(_amountController.text);
+
 
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
       return;
     }
 
     widget.newTransactionHandler(enteredTitle, enteredAmount, _selectedDate);
+
 
     Navigator.of(context).pop();
   }
@@ -97,7 +105,9 @@ class _NewTransactionState extends State<NewTransaction> {
               TextField(
                 decoration: InputDecoration(labelText: 'Amount'),
                 controller: _amountController,
+
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
+
                 onSubmitted: (_) => _submitData(),
               ),
               Container(
@@ -107,6 +117,7 @@ class _NewTransactionState extends State<NewTransaction> {
                     Expanded(
                       child: Text(
                         _selectedDate == null
+
                             ? 'No Date Choosen!'
                             : 'Picked Date : ${DateFormat.yMd('tr').format(_selectedDate)}',
                       ),
@@ -115,12 +126,15 @@ class _NewTransactionState extends State<NewTransaction> {
                       onPressed: _presentDatePicker,
                       child: Text('Choose Date'),
                     ),
+
                   ],
                 ),
               ),
               ElevatedButton(
+
                 onPressed: _submitData,
                 child: Text('Add Transaction'),
+
               ),
             ],
           ),

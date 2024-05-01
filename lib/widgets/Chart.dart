@@ -28,11 +28,13 @@ class Chart extends StatelessWidget {
     }).reversed.toList();
   }
 
+
   double get maxSpending {
     return groupedTransactionValues.fold(
         0.0,
             (sum, item) => sum + (item['amount'] as double)
     );
+
   }
 
   @override
